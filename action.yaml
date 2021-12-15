@@ -46,7 +46,7 @@ runs:
           sys.exit(1)
       shell: python
       env:
-        PY_COLORS: '1'
+        FORCE_COLOR: 3
 
 # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
 # Back: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.

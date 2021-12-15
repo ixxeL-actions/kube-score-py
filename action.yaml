@@ -38,6 +38,7 @@ runs:
 
         init(autoreset=True)
         print(f"{Fore.BLUE}{Style.BRIGHT}[ STEP - IaC security scan ] > IaC code security scan with Kube-score.")
+        print(sys.stdout.isatty())
 
         try:
           subprocess.run(["kube-score", "version"], shell=False, check=True, stderr=subprocess.PIPE)

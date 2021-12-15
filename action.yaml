@@ -32,6 +32,8 @@ runs:
   steps:
     - id: kube-score-py
       run: |
+        import subprocess
+        import sys
         from colorama import init, Fore, Back, Style
 
         init(autoreset=True)

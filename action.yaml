@@ -49,7 +49,7 @@ runs:
           sys.exit(1)
 
         try:
-          subprocess.run(["kube-score", "score", "deploy-test.yaml"], shell=False, check=True)
+          subprocess.run(["kube-score", "score", "deploy-test.yaml"], shell=False, check=True, stdout=sys.stdout)
         except subprocess.CalledProcessError as e:
           print(e.stderr)
           sys.exit(1)

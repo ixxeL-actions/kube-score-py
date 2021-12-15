@@ -57,7 +57,7 @@ runs:
       
       shell: python
       env:
-        PY_COLOR: 1
+        PY_COLORS: 1
         FORCE_COLOR: 3
 
 # Fore: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.

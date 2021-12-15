@@ -43,12 +43,16 @@ runs:
         print(sys.stdout.isatty())
 
         try:
-          subprocess.run(["kube-score", "version"], shell=False, check=True, stdout = sys.stdout, stderr=subprocess.PIPE)
+          subprocess.run(["kube-score", "version"], shell=False, check=True, stderr=subprocess.PIPE)
         except subprocess.CalledProcessError as e:
           print(e.stderr)
           sys.exit(1)
 
-        os.system('kube-score score deploy-test.yaml')
+        try:
+          subprocess.run(["kube-score", "score", "deploy-test.yaml"], shell=False, check=True, stdout=sys.stdout, stderr=subprocess.PIPE)
+        except subprocess.CalledProcessError as e:
+          print(e.stderr)
+          sys.exit(1)
 
       
       shell: python
@@ -60,8 +64,3 @@ runs:
 # Back: BLACK, RED, GREEN, YELLOW, BLUE, MAGENTA, CYAN, WHITE, RESET.
 # Style: DIM, NORMAL, BRIGHT, RESET_A
 
-# try:
-#   subprocess.run(["kube-score", "score", "deploy-test.yaml"], shell=False, check=True, stderr=subprocess.PIPE)
-# except subprocess.CalledProcessError as e:
-#   print(e.stderr)
-#   sys.exit(1)

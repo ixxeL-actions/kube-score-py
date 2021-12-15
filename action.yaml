@@ -46,6 +46,14 @@ runs:
         except subprocess.CalledProcessError as e:
           print(e.stderr)
           sys.exit(1)
+
+        try:
+          subprocess.run(["kube-score", "score", "deploy-test.yaml"], shell=False, check=True, stderr=subprocess.PIPE)
+        except subprocess.CalledProcessError as e:
+          print(e.stderr)
+          sys.exit(1)
+
+      
       shell: python
       env:
         FORCE_COLOR: 1

@@ -35,6 +35,7 @@ runs:
         import subprocess
         import sys
         from colorama import init, Fore, Back, Style
+        sys.stdout.isatty = sys.stderr.isatty = lambda: True
 
         init(autoreset=True)
         print(f"{Fore.BLUE}{Style.BRIGHT}[ STEP - IaC security scan ] > IaC code security scan with Kube-score.")

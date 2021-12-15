@@ -42,7 +42,7 @@ runs:
         except subprocess.CalledProcessError as e:
           print(e.stderr)
           sys.exit(1)
-      shell: python3
+      shell: python
       env:
         PY_COLORS: '1'
 

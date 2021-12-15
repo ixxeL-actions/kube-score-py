@@ -1,0 +1,25 @@
+name: Kube-score-CI
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    container: 
+      image: ixxel/unit-tests-alpine:latest
+    steps:
+    - name: Git clone repo
+      uses: actions/checkout@v2
+    - name: Kube-score IaC security scan
+      uses: ixxeL-actions/kube-score-py@main
+      with:
+        format: 'human'
+        verbose: 'true'
+        kube-version: 'v1.18'
+        warning-fail: 'false'  
+        exit-zero: 'true'
+        working-dir: './*.yaml'

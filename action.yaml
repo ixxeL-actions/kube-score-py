@@ -43,7 +43,7 @@ runs:
         print(sys.stdout.isatty())
 
         try:
-          subprocess.run(["kube-score", "version"], shell=False, check=True, stderr=subprocess.PIPE)
+          subprocess.run(["kube-score", "version"], shell=False, check=True, stdout = sys.stdout, stderr=subprocess.PIPE)
         except subprocess.CalledProcessError as e:
           print(e.stderr)
           sys.exit(1)
